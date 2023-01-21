@@ -1,0 +1,13 @@
+header .nav-container .header-info .item i {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px;
+    background: #bead8e;
+    color: #fff;
+    font-size: 14px;
+}

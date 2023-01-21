@@ -1,0 +1,24 @@
+.title {
+    font-family: 'Courier, monospace';
+    font-size: 95px !important;
+}
+
+
+/* Mobile xs */
+
+@media (max-width: 420px) {
+    .title {
+        font-family: 'Courier, monospace';
+        font-size: 70px !important;
+    }
+}
+
+
+/* Mobile & Tablet Rules */
+
+@media (max-width: 767px) {
+    .title {
+        font-family: 'Courier, monospace';
+        font-size: 70px !important;
+    }
+}
