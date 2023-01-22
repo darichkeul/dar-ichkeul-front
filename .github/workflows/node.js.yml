@@ -14,20 +14,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x, 18.x]
+        node-version: [16.x]
     steps:
-    - uses: actions/checkout@v3
+    - uses: 🛖 actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run build --if-present
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
-    steps:
+    - run: npm run build 
+
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
     
@@ -37,5 +34,5 @@ jobs:
         server: ftp.cluster030.hosting.ovh.net
         username: darichr
         password: ${{ secrets.SERVER_PASS }}
-        local-dir: /dist/*
+        local-dir: ./dist/*
         server-dir: /home/darichr/AppFront/
