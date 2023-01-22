@@ -36,4 +36,4 @@ jobs:
       with:
         server: ftp.cluster030.hosting.ovh.net
         username: lmdappw
-        password: ${{ secrets.SERVER_PASSWORD }}
+        password: ${{ secrets.SERVER_PASS }}
