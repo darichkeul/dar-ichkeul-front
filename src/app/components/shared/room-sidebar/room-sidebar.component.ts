@@ -32,20 +32,20 @@ export class RoomSidebarComponent implements OnInit {
 
   reservationChambreForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router, private http : HttpClient) { 
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router, private http : HttpClient) {
  // console.log("room>>>>",this.childMessage.title);
-  
+
 
 
 
     this.reservationChambreForm = this.createReservationChambreForm();
- 
+
   }
 
 
   createReservationChambreForm(): FormGroup {
     return this.fb.group({
-    
+
       date_arrive : [ '' , Validators.required],
       date_depart : ['' , Validators.required],
       type : [ '' , Validators.required],
@@ -65,7 +65,7 @@ export class RoomSidebarComponent implements OnInit {
    // console.log("room>>>>",this.childMessage.title);
     this.http.get(ApiPath + "reservations/check/room?room="+ `${this.childMessage.title}`).subscribe((resp : any) =>{
       //console.log("resp1>>>>",resp);
-   //  
+   //
       var newArray = Array.prototype.concat.apply([], resp);
 
       for(let i = 0; i< newArray.length; i++){
@@ -75,13 +75,13 @@ export class RoomSidebarComponent implements OnInit {
         // console.log("makes>>>>",  this.makes);
 })
 
-    
+
     for(let i=0; i < this.dates.length; i++){
       this.makes.push(this.dates[i].slice(1,4))
      // console.log("list>>>",this.makes);
-    
+
  }
-   
+
   }
 
 
@@ -89,20 +89,20 @@ export class RoomSidebarComponent implements OnInit {
 
     const dateArray = [];
       if (view === 'month') {
-        
+
         const date = cellDate;
         const newdate =  formatDate(date, 'yyyy-MM-dd', 'en');
-    
+
         return ((this.makes.includes(newdate))) ? 'example-custom-date-class' : 'example-custom-date-class2';
-    
-     } 
-         
+
+     }
+
       return ''
   }
 
 
 
- 
+
 
 
 
@@ -113,9 +113,9 @@ export class RoomSidebarComponent implements OnInit {
 
 
   addNewReservation(){
-  
-    
-//  console.log("date 1>>>",formatDate(this.reservationChambreForm.get('date_arrive')?.value, 'yyyy-MM-dd', 'en')); 
+
+
+//  console.log("date 1>>>",formatDate(this.reservationChambreForm.get('date_arrive')?.value, 'yyyy-MM-dd', 'en'));
   // console.log("date 2>>>",formatDate(this.reservationChambreForm.get('date_depart')?.value, 'yyyy-MM-dd', 'en'));
 
   }
@@ -124,7 +124,7 @@ export class RoomSidebarComponent implements OnInit {
 
 
   onAddTitle() {
-    
+
     if (!(this.reservationChambreForm.get('date_arrive')?.value && this.reservationChambreForm.get('date_depart')?.value)) {
       this.showNotification(
         ['error'],
@@ -135,8 +135,8 @@ export class RoomSidebarComponent implements OnInit {
         return;
       }
 
-     
-    this.bookTitleCreated.emit({ 
+
+    this.bookTitleCreated.emit({
       startDate: formatDate(this.reservationChambreForm.get('date_arrive')?.value, 'yyyy-MM-dd', 'en'),
       endDate:formatDate(this.reservationChambreForm.get('date_depart')?.value, 'yyyy-MM-dd', 'en'),
       room : this.childMessage.title
@@ -153,9 +153,9 @@ export class RoomSidebarComponent implements OnInit {
       );
         return;
       }
-    
-      
-      
+
+
+
 
       if(this.reservationChambreForm.get('type')?.value == 1 && this.childMessage.title == "Bonneli")
       {
@@ -199,7 +199,7 @@ export class RoomSidebarComponent implements OnInit {
         this.roomType = "Haute de saison single";
          this.roomPrice = 315;
       }
-       ///////////////////////////////////////////////// 
+       /////////////////////////////////////////////////
 
       if(this.reservationChambreForm.get('type')?.value == 1 && this.childMessage.title == "Amorpha")
       {
@@ -306,9 +306,9 @@ export class RoomSidebarComponent implements OnInit {
 
       this.getTarifClient(this.roomPrice)
       //console.log("rommprice >>>>", this.roomPrice);
-     
-      
-    this.FormCreated.emit({ 
+
+
+    this.FormCreated.emit({
       type : this.roomType,
       number_persone : this.reservationChambreForm.get('number_persone')?.value,
       nom: this.reservationChambreForm.get('nom')?.value,
@@ -330,7 +330,7 @@ export class RoomSidebarComponent implements OnInit {
   }
 
 
-  
+
   showNotification(colorName:any, text:any, placementFrom:any, placementAlign:any) {
     this.snackBar.open(text, '', {
       duration: 4000,
@@ -343,7 +343,7 @@ export class RoomSidebarComponent implements OnInit {
 
 
   getTarifClient(roomPrice:any){
-      var Time = this.reservationChambreForm.get('date_depart')?.value.getTime()- this.reservationChambreForm.get('date_arrive')?.value.getTime() ; 
+      var Time = this.reservationChambreForm.get('date_depart')?.value.getTime()- this.reservationChambreForm.get('date_arrive')?.value.getTime() ;
       var Days = Time / (1000 * 3600 * 24);
     // console.log("days>>>", Days);
      this.roomPrice = Days * roomPrice;
