@@ -40,7 +40,7 @@ jobs:
         name: deploy_dist
         path: dist
     - name: Deploy to FTP
-      uses: SamKirkland/FTP-Deploy-Actions@master
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
         server: ftp.cluster030.hosting.ovh.net
         username: darichr
