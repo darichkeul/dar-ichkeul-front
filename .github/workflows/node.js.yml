@@ -35,4 +35,4 @@ jobs:
         username: darichr
         password: ${{ secrets.SERVER_PASS }}
         local-dir: ./dist/
-        server-dir: "/home/darichr/AppFront/"
+        server-dir: "/home/darichr/"
