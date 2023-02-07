@@ -10,6 +10,7 @@ on:
 
 jobs:
   build:
+    name: self-hosted
 
     runs-on: ubuntu-latest
 
