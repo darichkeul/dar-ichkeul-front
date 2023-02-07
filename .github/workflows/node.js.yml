@@ -34,5 +34,5 @@ jobs:
         server: ftp.cluster030.hosting.ovh.net
         username: darichr
         password: ${{ secrets.SERVER_PASS }}
-        local-dir: "./dist/"
+        local-dir: ./dist/
         server-dir: "/home/darichr/AppFront/"
