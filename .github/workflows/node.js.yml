@@ -48,5 +48,5 @@ jobs:
         username: darichr
         password: ${{ secrets.SERVER_PASS }}
         local-dir: dist/
-        server-dir: "/home/darichr/Appfront"
+        server-dir: "/www/Appfront"
         dangerous-clean-slate: true # optional
