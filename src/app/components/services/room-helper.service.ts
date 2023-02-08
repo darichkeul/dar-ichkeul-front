@@ -59,7 +59,7 @@ export class RoomHelperService implements AfterContentInit {
   }
 
 
-  
+
   showNotification(colorName:any, text:any, placementFrom:any, placementAlign:any) {
     this.snackBar.open(text, '', {
       duration: 4000,
@@ -74,7 +74,7 @@ checkAvailableBooking(data : any){
   return this.http.post(this.ApiPath + '/booking', data)
 }
 
-  // En ligne reservation and send email 
+  // En ligne reservation and send email
   reservationEnligneAndSendEmail(data : any){
     return this.http.post(this.ApiPath + '/send', data)
   }

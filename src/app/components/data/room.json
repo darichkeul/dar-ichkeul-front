@@ -17,7 +17,8 @@
             1,
             2
         ],
-        "amenities": [{
+        "amenities": [
+          {
                 "title": "Climatiseur",
                 "icon": "fal fa-bath"
             },
@@ -95,7 +96,8 @@
             3,
             4
         ],
-        "amenities": [{
+        "amenities": [
+          {
                 "title": "Climatiseur",
                 "icon": "fal fa-bath"
             },
